@@ -46,3 +46,19 @@ todoForm.addEventListener("submit", (e) => {
     saveTodo(inputValue);
   }
 });
+
+document.addEventListener("click", (e) => {
+  const targetEl = e.target;
+  const parentEl = targetEl.closest("div");
+
+  const isFinishTodo = targetEl.classList.contains("finish-todo")
+  const isRemoveTodo = targetEl.classList.contains("remove-todo")
+
+  if (isFinishTodo) {
+    parentEl.classList.toggle("done");
+  };
+
+  if (isRemoveTodo) {
+    parentEl.remove();
+  }
+});
